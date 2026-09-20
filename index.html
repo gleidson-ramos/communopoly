@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Communist Monopoly (Communopoly) — Manual Oficial Não-Oficial</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Sans:wght@400;700&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="topnav" class="ribbon">
+  <div class="container">
+    <div class="overflow-x-auto" style="display:flex; align-items:center;">
+      <a href="#regras-gerais" class="navlink">📖 Regras Gerais</a>
+      <a href="#pecas" class="navlink">♟️ Peças &amp; Mecânicas</a>
+      <a href="#especiais" class="navlink">🚨 Regras Especiais</a>
+      <a href="#cartas" class="navlink">🃏 Cartas</a>
+      <a href="#tabuleiro" class="navlink">🗺️ Tabuleiro</a>
+      <a href="#fim-de-jogo" class="navlink">🏆 Fim de Jogo</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header style="position:relative; overflow:hidden; border-bottom:4px solid var(--ink);">
+  <div style="position:absolute; inset:0; background: repeating-linear-gradient(-35deg, var(--red), var(--red) 60px, var(--red-dark) 60px, var(--red-dark) 120px); opacity:0.14;"></div>
+  <div class="container" style="position:relative; padding:4.5rem 1.25rem 3.5rem; text-align:center;">
+    <div style="font-family:'PT Sans Narrow',sans-serif; font-weight:700; letter-spacing:0.15em; color:var(--red); margin-bottom:0.6rem;">☭ NARODNAYA RULE BOOK · Nº 1 ☭</div>
+    <p class="label-narrow" style="font-size:1.3rem; font-weight:700; margin-top:0.5rem; color:var(--iron);">COMMUNOPOLY</p>
+    <h1 class="display" style="font-size:clamp(2.4rem,7vw,4.6rem); color:var(--ink); margin:0; line-height:1.02;">MONOPOLY<br><span style="color:var(--red);">COMUNISTA</span><br>☭</h1>
+    <div class="brick-border-thin" style="display:inline-block; margin-top:1.6rem; padding:0.7rem 1.4rem; background:var(--cream);">
+      <p style="margin:0; font-weight:700;">Manual Não-Oficial de Regras <span style="color:var(--iron); font-weight:400;">(NRB)</span></p>
+    </div>
+    <p style="margin-top:1.8rem; font-style:italic; color:var(--iron); max-width:520px; margin-left:auto; margin-right:auto;">"Todos começam iguais, mas o Estado decide o final."</p>
+  </div>
+</header>
+
+<main>
+<!-- SECTION 2: REGRAS GERAIS -->
+<section id="regras-gerais" style="padding:3.5rem 0;">
+  <div class="container">
+    <h2 class="section-title">📖 Regras Gerais &amp; Recursos</h2>
+    <div id="regras-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:1rem; margin-top:1.5rem;"></div>
+  </div>
+</section>
+
+<!-- SECTION 3: PEÇAS -->
+<section id="pecas" style="padding:3.5rem 0; background:var(--paper-dark); border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);">
+  <div class="container">
+    <h2 class="section-title">♟️ Peças de Jogo — Personagens &amp; Habilidades</h2>
+    <p style="max-width:640px; color:var(--iron);">12 peças, 12 destinos. Cada uma serve ao Partido à sua maneira — e cada uma cai de um jeito diferente.</p>
+    <input id="piece-search" type="text" placeholder="Buscar peça por nome, habilidade ou destino..." style="width:100%; margin:1.25rem 0; font-size:1rem;">
+    <div id="pieces-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem;"></div>
+    <p id="pieces-empty" style="display:none; color:var(--iron); margin-top:1rem;">Nenhuma peça encontrada, camarada. Tente outra palavra.</p>
+  </div>
+</section>
+
+<!-- SECTION 4: MECÂNICAS ESPECIAIS -->
+<section id="especiais" style="padding:3.5rem 0;">
+  <div class="container">
+    <h2 class="section-title">🚨 Regras Especiais</h2>
+    <div id="especiais-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.25rem; margin-top:1.5rem;"></div>
+  </div>
+</section>
+
+<!-- SECTION 5: CARTAS -->
+<section id="cartas" style="padding:3.5rem 0; background:var(--paper-dark); border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);">
+  <div class="container">
+    <h2 class="section-title">🃏 Cartas</h2>
+    <p style="max-width:640px; color:var(--iron); margin-bottom:1.25rem;">Sorte não existe sob o socialismo — só o destino que o baralho decide por você.</p>
+    <input id="card-search" type="text" placeholder="Buscar carta por nome ou efeito..." style="width:100%; margin-bottom:1.25rem; font-size:1rem;">
+    <div style="display:flex; gap:0.6rem; margin-bottom:1.25rem;">
+      <button class="tab-btn active" data-tab="no-chance">No Chance</button>
+      <button class="tab-btn" data-tab="communist-test">Communist Test</button>
+    </div>
+    <div id="cards-no-chance"></div>
+    <div id="cards-communist-test" style="display:none;"></div>
+    <p id="cards-empty" style="display:none; color:var(--iron); margin-top:1rem;">Nenhuma carta encontrada.</p>
+  </div>
+</section>
+
+<!-- SECTION 6: TABULEIRO -->
+<section id="tabuleiro" style="padding:3.5rem 0;">
+  <div class="container">
+    <h2 class="section-title">🗺️ Tabuleiro e Locações</h2>
+    <p style="max-width:640px; color:var(--iron); margin-bottom:1.25rem;">Ordem horária a partir de STOY!. Espaços com moldura dourada têm regras próprias — toque para ver os detalhes.</p>
+    <div id="board-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(110px,1fr)); gap:0.5rem;"></div>
+  </div>
+</section>
+
+<!-- SECTION 7: FIM DE JOGO -->
+<section id="fim-de-jogo" style="padding:3.5rem 0; background:var(--paper-dark); border-top:4px solid var(--ink);">
+  <div class="container">
+    <h2 class="section-title">🏆 Fim de Jogo &amp; Pontuação</h2>
+    <div class="card brick-border-thin" style="padding:1.25rem 1.5rem; margin:1.5rem 0;">
+      <p style="margin:0;"><strong>Quando termina:</strong> assim que as peças reservas se esgotam (ninguém mais pode substituir uma peça desaparecida), a fase de Fim de Jogo é ativada e cada jogador restante calcula sua pontuação final pela fórmula da sua peça.</p>
+    </div>
+    <h3 style="margin-top:2rem;">Calculadora de Pontuação</h3>
+    <div class="card brick-border" style="padding:1.5rem; margin-top:1rem;">
+      <label class="label-narrow" style="font-weight:700; display:block; margin-bottom:0.4rem;">Escolha sua peça:</label>
+      <select id="calc-piece" style="width:100%; max-width:340px;"></select>
+      <div id="calc-inputs" style="margin-top:1.25rem; display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem;"></div>
+      <div id="calc-note" style="margin-top:1rem; font-style:italic; color:var(--iron);"></div>
+      <div id="calc-result" style="margin-top:1.25rem; font-size:1.4rem; font-family:'Russo One',sans-serif; color:var(--red);"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="ribbon" style="text-align:center; padding:1.5rem 1rem; font-family:'PT Sans Narrow',sans-serif;">
+  <p style="margin:0;">☭ Comunopoly — Regra do Estado é regra do jogo. Propriedade privada é temporária. ☭</p>
+</footer>
+
+<!-- MODAL -->
+<div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+  <div id="modal-box">
+    <button id="modal-close" aria-label="Fechar" style="float:right; background:none; border:2px solid var(--ink); width:2rem; height:2rem; cursor:pointer; font-weight:700;">✕</button>
+    <div id="modal-content"></div>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

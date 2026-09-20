@@ -1,0 +1,214 @@
+{
+  "regrasGerais": [
+    { "icon": "💰", "title": "Dinheiro Inicial", "text": "Todos os jogadores começam com 1.000 rublos." },
+    { "icon": "🚫", "title": "Teto da Riqueza", "text": "Ter mais de 1.000 rublos gera prisão imediata e confiscação dos bens." },
+    { "icon": "🥶", "title": "Miséria", "text": "Ficar com 0 rublos ou saldo devedor resulta em prisão por indigência." },
+    { "icon": "👤", "title": "O Camarada Stalin (Banqueiro)", "text": "Juiz supremo do jogo (não jogável). Tem palavra final em qualquer disputa." },
+    { "icon": "🚩", "title": "STOY!", "text": "<b>Parar no STOY!:</b> ganha 200 rublos. <br><b>Passar pelo STOY!:</b> paga 50 rublos de suborno ao guarda." },
+    { "icon": "🎲", "title": "Dados (Duplos)", "text": "Rolar dados iguais garante nova jogada. 3 duplas seguidas (mesmo não consecutivas) levam à prisão. <b>Não seja ganancioso!</b>" },
+    { "icon": "🤝", "title": "Propriedades Recusadas", "text": "Se um jogador passar uma propriedade, todos devem entrar em consenso sobre o destino dela (leilão, doação ao Estado, etc.)." }
+  ],
+
+  "pecas": [
+    {
+      "id": "wheelbarrow", "icon": "🛒", "nome": "Carrinho", "identidade": "Kulak",
+      "habilidade": "Toma propriedades marrons para si de graça ao cair nelas.",
+      "endgame": "Enviado para o Gulag.",
+      "formula": "(Dinheiro no Oeste) x (Nº de Propriedades)",
+      "special": false,
+      "calcVars": [
+        { "k": "oeste", "label": "Dinheiro no Oeste" },
+        { "k": "props", "label": "Nº de Propriedades" }
+      ]
+    },
+    {
+      "id": "boot", "icon": "🥾", "nome": "Bota", "identidade": "Proletariado",
+      "habilidade": "Utilidades custam metade do preço para você.",
+      "endgame": "Convocado para o exército.",
+      "formula": "[(Dinheiro na mão) x (Propriedades)] ÷ (Jogadores + Estado)",
+      "special": false,
+      "calcVars": [
+        { "k": "mao", "label": "Dinheiro na mão" },
+        { "k": "props", "label": "Propriedades" },
+        { "k": "jogadores", "label": "Nº de jogadores restantes" }
+      ]
+    },
+    {
+      "id": "iron", "icon": "🧹", "nome": "Ferro de Passar", "identidade": "Babushka Viúva",
+      "habilidade": "Não paga os 50 rublos de suborno em STOY!",
+      "endgame": "Você está morrendo! Ttransfera seu dinheiro da mão para a pontuação de outro jogador, e fica com metade da pontuação dele.",
+      "formula": "Metade da pontuação final de quem recebeu a herança",
+      "special": true,
+      "calcVars": [
+        { "k": "herdeiro", "label": "Pontuação final de quem herdou (após receber seu dinheiro)" }
+      ]
+    },
+    {
+      "id": "thimble", "icon": "🧵", "nome": "Dedal", "identidade": "Camponês Coletivizado",
+      "habilidade": "Joga com apenas 1 dado (ainda assim precisa tirar duplas para sair da cadeia).",
+      "endgame": "Você morreu de fome! Subtraia seu dinheiro da pontuação de outro jogador. Se a pontuação dele ficar negativa, sua pontuação é o valor absoluto do resultado negativo.",
+      "formula": "|Pontuação da vítima − seu dinheiro|, se o resultado for negativo",
+      "special": true,
+      "calcVars": [
+        { "k": "vitima", "label": "Pontuação da vítima antes da subtração" },
+        { "k": "dinheiro", "label": "Seu dinheiro na mão" }
+      ]
+    },
+    {
+      "id": "battleship", "icon": "🚢", "nome": "Navio", "identidade": "Exército Vermelho",
+      "habilidade": "Estações de trem pela metade do preço.",
+      "endgame": "Você deserdou do exército!",
+      "formula": "(Dinheiro no Oeste) x (Nº de Casas)",
+      "special": false,
+      "calcVars": [
+        { "k": "oeste", "label": "Dinheiro no Oeste" },
+        { "k": "casas", "label": "Nº de Casas" }
+      ]
+    },
+    {
+      "id": "car", "icon": "🚗", "nome": "Carro", "identidade": "Politburo",
+      "habilidade": "Escolhe a carta ao cair em \"Teste Comunista\".",
+      "endgame": "Escanteado.",
+      "formula": "(Dinheiro no Oeste) x (Nº de Hotéis)",
+      "special": false,
+      "calcVars": [
+        { "k": "oeste", "label": "Dinheiro no Oeste" },
+        { "k": "hoteis", "label": "Nº de Hotéis" }
+      ]
+    },
+    {
+      "id": "dog", "icon": "🐕", "nome": "Cachorro", "identidade": "Lapdog Burguês",
+      "habilidade": "Escolhe a carta ao cair em \"Sem Chance\".",
+      "endgame": "Você foi denunciado.",
+      "formula": "Metade do dinheiro contrabandeado no Oeste",
+      "special": false,
+      "calcVars": [
+        { "k": "oeste", "label": "Dinheiro contrabandeado no Oeste" }
+      ]
+    },
+    {
+      "id": "hat", "icon": "🎩", "nome": "Chapéu", "identidade": "Nepman",
+      "habilidade": "Ganha casa grátis ao completar um conjunto de cores.",
+      "endgame": "Fusilado.",
+      "formula": "0",
+      "special": false,
+      "calcVars": []
+    },
+    {
+      "id": "cat", "icon": "🐱", "nome": "Gato", "identidade": "Spetsnaz GRU",
+      "habilidade": "Você pode forçar outro jogador a sofrer as consequências de cartas \"Sem Chance\" ou \"Teste Comunista\".",
+      "endgame": "Você foi capturado e é calculado por último: pontuação 0, mas rotaciona as pontuações de todos em 1 posição no sentido horário.",
+      "formula": "0 (rotaciona as pontuações dos demais)",
+      "special": true,
+      "calcVars": []
+    },
+    {
+      "id": "penguin", "icon": "🐧", "nome": "Pinguim", "identidade": "Espião",
+      "habilidade": "Pode contrabandear dinheiro ao cair em qualquer propriedade com dono.",
+      "endgame": "Traídor! Rouba a pontuação de outro jogador antes de ser calculada, deixando o outro com 0.",
+      "formula": "Pontuação da vítima (que fica com 0)",
+      "special": true,
+      "calcVars": [
+        { "k": "vitima", "label": "Pontuação calculada da vítima" }
+      ]
+    },
+    {
+      "id": "duck", "icon": "🦆", "nome": "Pato", "identidade": "Dublê do Stalin",
+      "habilidade": "Ao cair no mesmo espaço que outro jogador, envia ele para a prisão.",
+      "endgame": "Esquecido.",
+      "formula": "(Pessoas enviadas para a cadeia) x (Propriedades)",
+      "special": false,
+      "calcVars": [
+        { "k": "presos", "label": "Pessoas enviadas para a cadeia" },
+        { "k": "props", "label": "Propriedades" }
+      ]
+    },
+    {
+      "id": "trex", "icon": "🦖", "nome": "T-Rex (Tiranossauro)", "identidade": "Velho Bolchevique Não-Reformado",
+      "habilidade": "Não pode comprar propriedades, mas toma propriedades com dono onde cai. Divide todos os ganhos igualmente entre os jogadores.",
+      "endgame": "Irrelevante. Divide dinheiro da mão com os jogadores.",
+      "formula": "(Nº de pessoas com quem dividiu dinheiro) x (Propriedades confiscadas)",
+      "special": false,
+      "calcVars": [
+        { "k": "pessoas", "label": "Pessoas com quem dividiu dinheiro" },
+        { "k": "props", "label": "Propriedades confiscadas" }
+      ]
+    }
+  ],
+
+  "especiais": [
+    {
+      "titulo": "🔒 Cadeia",
+      "itens": [
+        "Para sair: Role duplas na sua vez.",
+        "Se tirar número 1 nos dados enquanto estiver na cadeia você desaparece imediatamente.",
+        "Taxa de manutenção: 100 rublos por jogada ao Estado. Se não pagar você desaparece.",
+        "Aluguel recebido enquanto preso vai para o Estado, sem troco."
+      ]
+    },
+    {
+      "titulo": "👻 Desaparecimeno",
+      "itens": [
+        "Perde todos os bens e dinheiro para o Estado.",
+        "A peça original é removida; o jogador escolhe uma nova peça.",
+        "Quando todas as peças reservas se esgotarem, ativa-se a Fase de Fim de Jogo."
+      ]
+    },
+    {
+      "titulo": "🕵️ Contrabando para o Oeste",
+      "itens": [
+        "Ocorre ao cair em Free Parking ou em construção própria.",
+        "O dinheiro fica depositado lá até o jogador dar uma volta completa e pousar lá de novo.",
+        "Se outro jogador cair antes, ele rouba seu dinheiro e você desaparece!"
+      ]
+    }
+  ],
+
+  "noChance": [
+    { "nome": "Siege of Stalingrad", "texto": "Rouba 1 propriedade de um oponente." },
+    { "nome": "Telegraph Union", "texto": "Fecha estações/utilidades onde você cai. Outros pagam 10 rublos a você e ao Estado ao passarem." },
+    { "nome": "Bestseller!", "texto": "Ganha 500 rublos e vai preso até tirar um 6, ou tenta queimar o livro rolando dados." },
+    { "nome": "\"Acidente\"", "texto": "Desaparece caindo de uma janela sobre várias balas." },
+    { "nome": "Denuncie seus colaboradores", "texto": "Se você cair ou estiver na prisão, debuncie seu colaborador e troque de lucar com ele." },
+    { "nome": "Party Vanguard", "texto": "Joga 3 vezes seguidas imediatamente." },
+    { "nome": "Agente Duplo", "texto": "Troca de peça/personagem com outro jogador." },
+    { "nome": "Nomenklatura", "texto": "Avança direto para o Kremlin sem pagar o suborno em STOY!" },
+    { "nome": "Correção Política", "texto": "Só pode se comunicar por gestos (exceto com Stalin) até desaparecer." },
+    { "nome": "Anti-Revisionist", "texto": "Não joga na próxima rodada." },
+    { "nome": "Esconderijo", "texto": "Você é está escondido neste local e perde as 3 próximas rodadas. Se alguém cair no mesmo local que você, você desaparece." }
+  ],
+
+  "communistTest": [
+    { "nome": "Erro no banco / Concurso de beleza", "texto": "Colete 1.000 rublos. <b>Cuidado com o teto de dinheiro!</b>" },
+    { "nome": "NKVD Quiz", "texto": "Teste de perguntas sobre doutrina (John Wayne / Marion Morrison / Sgt. Striker). Respostas erradas levam à prisão." },
+    { "nome": "Collectivization Drive!", "texto": "Junta o dinheiro e propriedades de todos e redistribui igualmente. Se não houver acordo, todos vão para a prisão." },
+    { "nome": "Ligação Secreta do Stalin!", "texto": "Role o dado. Se o resultado for 1, você desaparece. Qualquer outro número, você ganha uma propriedade mas desaparece se cair nela depois." },
+    { "nome": "Informante Secreto", "texto": "Manda jogadores no mesmo espaço que você para a cadeia." },
+    { "nome": "The Great Purge", "texto": "Todos perdem construções e metade das propriedades. Pedra, papel e tesoura decide quem desaparece." },
+    { "nome": "Counter-Revolutionary!", "texto": "Inverte a direção de movimento no tabuleiro — apenas para você." },
+    { "nome": "Show Trial", "texto": "Votação para soltar ou desaparecer alguém da cadeia; Seu voto vale por 2! Em caso de empate, Stlin decide." },
+    { "nome": "Fourth International", "texto": "Um jogador é secretamente Trotsky via carta oculta. Ao cair no local definido por Stalin, se for Trotsky, desaparece." },
+    { "nome": "Revolução Cultural", "texto": "Inverte o sentido de circulação de TODOS os jogadores no tabuleiro." },
+    { "nome": "Lista Negra", "texto": "Não pode comprar nem cobrar aluguel até dar 1 volta completa no tabuleiro." }
+  ],
+
+  "espacosEspeciais": {
+    "Chernobyl Power": "Entregue de graça. Explode em 3 turnos se o dono não tiver \"The Volga\". Se explodir: destrói todas as propriedades do dono permanentemente, envia o dono para a cadeia e devolve Chernobyl ao Estado. Pode ser passada para outro jogador que cair nela.",
+    "The Volga": "Só pode ser adquirida doando todas as suas propriedades para outros jogadores. Quem cair nela entrega todas as propriedades ao dono.",
+    "The Kremlin": "Permite ao jogador criar qualquer regra nova até que ele desapareça.",
+    "NKVD Headquarters": "1ª vez = perde o turno; 2ª vez = vai para a cadeia; 3ª vez = desaparece."
+  },
+
+  "tabuleiro": [
+    "STOY!", "Machine Tractor Station 37", "Teste Comunista", "Arquipélago Gulag", "Sem Chance",
+    "Estação Tretyakovskaya", "Metrô de Moscow", "Sem Chance", "Praça Komsomolskaya", "Cadeia",
+    "Nikolskaya Ulitsa", "Chernobyl Power", "Poklonnaya Hill", "Victory Square", "Estação Kuznetsky",
+    "Kuznetsky Most", "Teste Comunista", "Mamayev Kurgan", "Kazan Cathedral", "Free Parking",
+    "Barmaley Fountain", "Sem Chance", "Red Square", "Uspensky Cathedral", "Estação Mayakovskaya",
+    "Teatro Bolshoi", "Catedral Saint Bassil's", "The Volga", "Ulitsa Garibaldi", "Direto para a Cadeia",
+    "Merkez Square", "Lenin's Mausoléu", "Teste Comunista", "Ulitsa Tverskaya", "Estação Leningradsky",
+    "Sem Chance", "The Kremlin", "Teste Comunista", "NKVD Headquarters"
+  ],
+
+  "cornerSpaces": ["STOY!", "Cadeia", "Free Parking", "Direto para a Cadeia"]
+}
