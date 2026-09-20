@@ -3,12 +3,18 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Communist Monopoly (Communopoly) — Manual Oficial Não-Oficial</title>
+
+<title>Communopoly!</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>☭</text></svg>">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=PT+Sans:wght@400;700&family=PT+Sans+Narrow:wght@400;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
 <!-- NAV -->
@@ -51,8 +57,8 @@
 <!-- SECTION 3: PEÇAS -->
 <section id="pecas" style="padding:3.5rem 0; background:var(--paper-dark); border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);">
   <div class="container">
-    <h2 class="section-title">♟️ Peças de Jogo — Personagens &amp; Habilidades</h2>
-    <p style="max-width:640px; color:var(--iron);">12 peças, 12 destinos. Cada uma serve ao Partido à sua maneira — e cada uma cai de um jeito diferente.</p>
+    <h2 class="section-title">♟️ Peças de Jogo: Personagens &amp; Habilidades</h2>
+    <p style="max-width:640px; color:var(--iron);"><b>12 peças, 12 destinos.</b><br> Cada uma serve ao Partido à sua maneira e cada uma cai de um jeito diferente.</p>
     <input id="piece-search" type="text" placeholder="Buscar peça por nome, habilidade ou destino..." style="width:100%; margin:1.25rem 0; font-size:1rem;">
     <div id="pieces-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:1rem;"></div>
     <p id="pieces-empty" style="display:none; color:var(--iron); margin-top:1rem;">Nenhuma peça encontrada, camarada. Tente outra palavra.</p>
@@ -74,8 +80,8 @@
     <p style="max-width:640px; color:var(--iron); margin-bottom:1.25rem;">Sorte não existe sob o socialismo — só o destino que o baralho decide por você.</p>
     <input id="card-search" type="text" placeholder="Buscar carta por nome ou efeito..." style="width:100%; margin-bottom:1.25rem; font-size:1rem;">
     <div style="display:flex; gap:0.6rem; margin-bottom:1.25rem;">
-      <button class="tab-btn active" data-tab="no-chance">No Chance</button>
-      <button class="tab-btn" data-tab="communist-test">Communist Test</button>
+      <button class="tab-btn active" data-tab="no-chance">Sem Chance</button>
+      <button class="tab-btn" data-tab="communist-test">Teste Comunista</button>
     </div>
     <div id="cards-no-chance"></div>
     <div id="cards-communist-test" style="display:none;"></div>
